@@ -5,8 +5,8 @@ cache:
 install:
   - sudo ./build-bsdtar.sh
 script:
-  - sudo ./build-img.sh http://os.archlinuxarm.org/os/ArchLinuxARM-rpi-3-latest.tar.gz
-  - sudo ./build-img.sh http://os.archlinuxarm.org/os/ArchLinuxARM-rpi-2-latest.tar.gz
+  - sudo ./build-arch-arm-img.sh http://os.archlinuxarm.org/os/ArchLinuxARM-rpi-3-latest.tar.gz
+  - sudo ./build-arch-arm-img.sh http://os.archlinuxarm.org/os/ArchLinuxARM-rpi-2-latest.tar.gz
 deploy:
   provider: releases
   api_key:
