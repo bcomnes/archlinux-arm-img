@@ -4,17 +4,18 @@ cache:
   - "./images"
   - "./libarchive-3.3.1"
 install:
-  - sudo ./build-bsdtar.sh
+- sudo ./build-bsdtar.sh
 script:
-  - sudo ./build-arch-arm-img.sh http://os.archlinuxarm.org/os/ArchLinuxARM-rpi-3-latest.tar.gz
-  - sudo ./build-arch-arm-img.sh http://os.archlinuxarm.org/os/ArchLinuxARM-rpi-2-latest.tar.gz
-deploy:
+- sudo ./build-arch-arm-img.sh http://os.archlinuxarm.org/os/ArchLinuxARM-rpi-3-latest.tar.gz
+- sudo ./build-arch-arm-img.sh http://os.archlinuxarm.org/os/ArchLinuxARM-rpi-2-latest.tar.gz
+old_deploy:
   provider: releases
   api_key:
-    secure: Hy0s03T0K0ZbgmzzB0Cepz2zUczGF6ryechV6UqGk+kNsn+bUOjROQkugLVwqZhm54ePUeYJ5CejKJgkQKRJCFZHzs3CZmQZPW5eRbaWP8N2qv6ktaW9XQpRs4jkkcG5o4Wuz4P79rCMbXDQEJ44R3o/Ov05nyRLpLb69MetCokeJzWZwFYhnHV6mDyMoYVzzOdWavlyjvmJ0jQgln3T68MxqRIO0yBjeHqQAluu2NsrZovzsCOm6DxuhzzFYojfdpo8OwOqkzRztzRxPUqxczbbtyefwyx1SfqMOmPC8XLIokgCg356UygQs+RiQNmTfCae/+FUOm+mQm1XEtvJUThJlWyd7I1+l1gi/hbThqjcTfhx4YBiybSUGeeOeYsdLbNfzBYo8c4tsAHV1LqPZyy0F5PnSRdS1Y0kxObHQ45gYz4RKhVo9MGva0UWRBqrx916czG45MpU0pqpUz1wu61n2XeAdj/4bkY1J3zq/CP/EeOWaHphXHfWed5PfPTppruKfILw+ytBGH/GLbnD22q5n46yWvHKF2CVUtd150AY9p2CAOWdItHmbXMziTcpMtqr2R4MMjVAr3Rf4JcNe4OtKIn9FEwZDiEw76QuOkO2rgL8mGuPI7acCRtZZcxK6kt0fMNpdt5bIzMdz1AWvxus+1PdYpbRg02Jx5Gmj7U=
+    secure: qkHCFOy/eNGzbMD9Jc2559O6f5zvGGZh+IiTafbmhs9E+78KO5stqPrGcrrE3sVL9O8fCRCgx3b7VbExL/vDfkkyy+fueSECOQzS0/X994sGKiTT2ZtrQnLo1xcJOPAZ9mZsjyW4Ze7YdTUldUm2Tp+8nyOxQg4XrljyBX/qTsxIlvLhv17WAkr0H4FYijvUkfZT4ASLJd9vzvb3uvi2wInhu6qpfAu3b7C/ZXCwBQ2jL4PdNExCtJpjY5Me2KqhpM1FtRkuSLaSaLntwjJIoZq9kSVbANN2+8cZedVbdXgKpg6ePuzsyaEFeskow/EfrILRcIbUnMalaKxhLfx16RN2dGwHxLHQ+XGmYhsRI63/d4VEAq36TGx0u3VTS8m7EV6DBIJ0+ExgnHtY1EDawbjAr4zpeOGwJhMBtVCnXXgSyWA8u6bv42RL76EnTjudBiXRSZiVwaB736/HnTw55Sx5GBPQmULWO1lhAIcRCBmQPE/ZGo/Bi+JvA27fkwbJ4Yto9CdHONCMlsVThmFGOgITLUtm8TpwSNUilx8ilU4e3JZ1Q9iAqhvU6E3Ypcrn+/LKLdPl/xBSGxDmj6I+38K1BYMJm7AtSxUskCCH/5/4vFhbf/rGXlxTQxF6af1HY8kH1DDHdYsSpCSReszuMhRVtZ007lveG6Yoxz3Lkrw=
   file_glob: true
   file: ArchLinuxARM-*.{img,md5}
   skip_cleanup: true
   overwrite: true
   on:
     tags: true
+    repo: bcomnes/archlinux-arm-img
