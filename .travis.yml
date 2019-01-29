@@ -8,7 +8,7 @@ install:
 script:
 - sudo ./build-arch-arm-img.sh http://os.archlinuxarm.org/os/ArchLinuxARM-rpi-3-latest.tar.gz
 - sudo ./build-arch-arm-img.sh http://os.archlinuxarm.org/os/ArchLinuxARM-rpi-2-latest.tar.gz
-old_deploy:
+deploy:
   provider: releases
   api_key:
     secure: qkHCFOy/eNGzbMD9Jc2559O6f5zvGGZh+IiTafbmhs9E+78KO5stqPrGcrrE3sVL9O8fCRCgx3b7VbExL/vDfkkyy+fueSECOQzS0/X994sGKiTT2ZtrQnLo1xcJOPAZ9mZsjyW4Ze7YdTUldUm2Tp+8nyOxQg4XrljyBX/qTsxIlvLhv17WAkr0H4FYijvUkfZT4ASLJd9vzvb3uvi2wInhu6qpfAu3b7C/ZXCwBQ2jL4PdNExCtJpjY5Me2KqhpM1FtRkuSLaSaLntwjJIoZq9kSVbANN2+8cZedVbdXgKpg6ePuzsyaEFeskow/EfrILRcIbUnMalaKxhLfx16RN2dGwHxLHQ+XGmYhsRI63/d4VEAq36TGx0u3VTS8m7EV6DBIJ0+ExgnHtY1EDawbjAr4zpeOGwJhMBtVCnXXgSyWA8u6bv42RL76EnTjudBiXRSZiVwaB736/HnTw55Sx5GBPQmULWO1lhAIcRCBmQPE/ZGo/Bi+JvA27fkwbJ4Yto9CdHONCMlsVThmFGOgITLUtm8TpwSNUilx8ilU4e3JZ1Q9iAqhvU6E3Ypcrn+/LKLdPl/xBSGxDmj6I+38K1BYMJm7AtSxUskCCH/5/4vFhbf/rGXlxTQxF6af1HY8kH1DDHdYsSpCSReszuMhRVtZ007lveG6Yoxz3Lkrw=
