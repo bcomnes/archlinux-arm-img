@@ -1,7 +1,7 @@
 dist: xenial
 cache:
   directories:
-  - "~/.go"
+  - "./images"
 install:
   - sudo ./build-bsdtar.sh
 script:
