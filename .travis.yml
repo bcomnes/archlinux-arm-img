@@ -20,4 +20,4 @@ deploy:
   overwrite: true
   on:
     repo: bcomnes/archlinux-arm-img
-    condition: $TRAVIS_EVENT_TYPE = cron || -n $TRAVIS_TAG
+    tag: true
