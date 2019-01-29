@@ -17,7 +17,7 @@ losetup /dev/loop0 && exit 1 || true
 ## Download the md5
 mkdir -p IMG_DIR
 pushd $IMG_DIR
-wget -N -$MD5_URL
+wget -N $MD5_URL
 if md5sum -c $MD5_NAME ; then
   echo "Cached ${IMG_NAME} already downloaded!"
 else
