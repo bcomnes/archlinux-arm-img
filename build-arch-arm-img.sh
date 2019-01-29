@@ -18,7 +18,7 @@ wget -N $IMG_URL
 wget -N $MD5_URL
 md5sum -c $MD5_NAME
 
-truncate -s 1.2G $TARGET_IMAGE
+truncate -s 1500M $TARGET_IMAGE
 losetup /dev/loop0 $TARGET_IMAGE
 parted -s /dev/loop0 mklabel msdos
 parted -s /dev/loop0 mkpart primary fat32 -a optimal -- 0% 100MB
