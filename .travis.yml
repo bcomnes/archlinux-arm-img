@@ -11,12 +11,6 @@ script:
 stages:
   - name: before_deploy
     if: $TRAVIS_EVENT_TYPE = cron
-before_deploy:
-  # Set up git user name and tag this commit
-  - if [[ $TRAVIS_EVENT_TYPE = cron ]]; then git config --local user.name "Bret Comnes"; fi
-  - if [[ $TRAVIS_EVENT_TYPE = cron ]]; then git config --local user.email "bcomnes@gmail.com"; fi
-  - if [[ $TRAVIS_EVENT_TYPE = cron ]]; then export TRAVIS_TAG=${TRAVIS_TAG:-$(date +'%Y%m%d%H%M%S')-$(git log --format=%h -1)}; fi
-  - if [[ $TRAVIS_EVENT_TYPE = cron ]]; then git tag $TRAVIS_TAG; fi
 deploy:
   provider: releases
   api_key: $GITHUB_PAT
@@ -26,4 +20,4 @@ deploy:
   overwrite: true
   on:
     repo: bcomnes/archlinux-arm-img
-    tag: true
+    condition: $TRAVIS_EVENT_TYPE = cron || -n $TRAVIS_TAG
