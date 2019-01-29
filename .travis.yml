@@ -8,6 +8,9 @@ install:
 script:
 - sudo ./build-arch-arm-img.sh http://os.archlinuxarm.org/os/ArchLinuxARM-rpi-3-latest.tar.gz
 - sudo ./build-arch-arm-img.sh http://os.archlinuxarm.org/os/ArchLinuxARM-rpi-2-latest.tar.gz
+stages:
+  - name: before_deploy
+    if: $TRAVIS_EVENT_TYPE = cron
 before_deploy:
   # Set up git user name and tag this commit
   - git config --local user.name "Bret Comnes"
@@ -23,4 +26,4 @@ deploy:
   overwrite: true
   on:
     repo: bcomnes/archlinux-arm-img
-    # tags: true
+    tag: true
