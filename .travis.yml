@@ -17,4 +17,3 @@ deploy:
   overwrite: true
   on:
     tag: true
-    repo: bcomnes/archlinux-arm-img
