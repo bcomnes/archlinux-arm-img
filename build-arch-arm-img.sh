@@ -61,7 +61,7 @@ losetup -d /dev/loop0
 rm -rf root
 
 # Zip img
-zip $TARGET_ZIP $TARGET_IMAGE
+zip -r9 $TARGET_ZIP $TARGET_IMAGE
 
 # Generate MD5
 md5sum $TARGET_ZIP > $TARGET_ZIP_MD5
