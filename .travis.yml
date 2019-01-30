@@ -8,9 +8,6 @@ install:
 script:
 - sudo ./build-arch-arm-img.sh http://os.archlinuxarm.org/os/ArchLinuxARM-rpi-3-latest.tar.gz
 - sudo ./build-arch-arm-img.sh http://os.archlinuxarm.org/os/ArchLinuxARM-rpi-2-latest.tar.gz
-stages:
-  - name: before_deploy
-    if: $TRAVIS_EVENT_TYPE = cron
 deploy:
   provider: releases
   api_key: $GITHUB_PAT
@@ -19,5 +16,5 @@ deploy:
   skip_cleanup: true
   overwrite: true
   on:
-    repo: bcomnes/archlinux-arm-img
     tag: true
+    repo: bcomnes/archlinux-arm-img
