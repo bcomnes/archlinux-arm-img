@@ -18,12 +18,12 @@ losetup /dev/loop0 && exit 1 || true
 ## Check cache and maybe download
 mkdir -p IMG_DIR
 pushd $IMG_DIR
-wget -N $MD5_URL
+wget -q -N $MD5_URL
 if md5sum -c $MD5_NAME ; then
   echo "Cached ${IMG_NAME} already downloaded!"
 else
   echo "Cached ${IMG_NAME} did not match MD5 of latest image, downloading"
-  wget -N $IMG_URL
+  wget -q -N $IMG_URL
   # Double check the new version matches
   md5sum -c $MD5_NAME
 fi
