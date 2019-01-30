@@ -3,14 +3,14 @@ cache:
   directories:
   - "./images"
   - "./libarchive-3.3.1"
-install:
-- sudo ./build-bsdtar.sh
 matrix:
   include:
   - name: "ArchLinuxARM-rpi-3-latest"
     env: TARGET_IMG_URL=http://os.archlinuxarm.org/os/ArchLinuxARM-rpi-3-latest.tar.gz
   - name: "ArchLinuxARM-rpi-2-latest"
     env: TARGET_IMG_URL=http://os.archlinuxarm.org/os/ArchLinuxARM-rpi-2-latest.tar.gz
+install:
+- sudo ./build-bsdtar.sh
 script:
 - sudo ./build-arch-arm-img.sh $TARGET_IMG_URL
 deploy:
