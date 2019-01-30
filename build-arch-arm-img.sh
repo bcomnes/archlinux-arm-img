@@ -8,7 +8,8 @@ IMG_URL="$1"
 IMG_NAME=${IMG_URL##*/}
 IMG_PATH=${IMG_DIR}/${IMG_NAME}
 TARGET_IMAGE=$(basename -s .tar.gz "$IMG_NAME").img
-TARGET_IMAGE_MD5=${TARGET_IMAGE}.md5
+TARGET_ZIP=$(basename -s .tar.gz "$IMG_NAME").zip
+TARGET_ZIP_MD5=${TARGET_ZIP}.md5
 MD5_URL=${IMG_URL}.md5
 MD5_NAME=${MD5_URL##*/}
 
@@ -59,7 +60,10 @@ umount root/boot root
 losetup -d /dev/loop0
 rm -rf root
 
-# Generate MD5
-md5sum $TARGET_IMAGE > $TARGET_IMAGE_MD5
+# Zip img
+zip $TARGET_ZIP $TARGET_IMAGE
 
-# Take from https://gist.github.com/larsch/4ae5499023a3c5e22552
+# Generate MD5
+md5sum $TARGET_ZIP > $TARGET_ZIP_MD5
+
+# Taken from https://gist.github.com/larsch/4ae5499023a3c5e22552
