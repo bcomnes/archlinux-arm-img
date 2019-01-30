@@ -5,9 +5,14 @@ cache:
   - "./libarchive-3.3.1"
 install:
 - sudo ./build-bsdtar.sh
+matrix:
+  include:
+  - name: "ArchLinuxARM-rpi-3-latest"
+    env: TARGET_IMG_URL=http://os.archlinuxarm.org/os/ArchLinuxARM-rpi-3-latest.tar.gz
+  - name: "ArchLinuxARM-rpi-2-latest"
+    env: TARGET_IMG_URL=http://os.archlinuxarm.org/os/ArchLinuxARM-rpi-2-latest.tar.gz
 script:
-- sudo ./build-arch-arm-img.sh http://os.archlinuxarm.org/os/ArchLinuxARM-rpi-3-latest.tar.gz
-- sudo ./build-arch-arm-img.sh http://os.archlinuxarm.org/os/ArchLinuxARM-rpi-2-latest.tar.gz
+- sudo ./build-arch-arm-img.sh $TARGET_IMG_URL
 deploy:
   provider: releases
   api_key: $GITHUB_PAT
