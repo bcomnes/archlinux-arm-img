@@ -16,4 +16,4 @@ deploy:
   skip_cleanup: true
   overwrite: true
   on:
-    tag: true
+    tags: true
