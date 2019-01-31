@@ -9,7 +9,7 @@ The `alarm` project does not publish images, just inconveniently packaged archiv
 
 ## Usage
 
-Download the image and install with the etcher GUI:
+Download the image and install with the [etcher GUI](https://www.balena.io/etcher/):
 
 ```console
 $ brew cask install balenaetcher
@@ -30,7 +30,7 @@ There is also a script to install new `bsdtar`, but its just a simple `./configu
 
 ## Examples
 
-- See [.travis.yml](./travis.yml) for example usage
+- See [.travis.yml](./travis.yml) for example CI usage
 - See [github.com/bcomnes/raspi-packer](https://github.com/bcomnes/raspi-packer) for example consumption of this image with packer. (Note this is a WIP)
 
 ## Releases
@@ -50,3 +50,4 @@ Intended to be used with [packer](https://packer.io) and the [packer-builder-arm
 -  [archlinuxarm.org](https://archlinuxarm.org)
 -  [projects/archlinux-rpi2/](https://sourceforge.net/projects/archlinux-rpi2/) - Similar project, but little transparency around builds
 - [gist.github.com/larsch/4ae5499023a3c5e22552](https://gist.github.com/larsch/4ae5499023a3c5e22552) - A gist this workflow was based on
+- [etcher GUI](https://www.balena.io/etcher/)
