@@ -7,9 +7,13 @@ A simple (unofficial) CI/CD bash script to build a zipped `.img` of [Arch Linux 
 
 The `alarm` project does not publish images, just inconveniently packaged archives that require a very up-to-date version of  [`bsdtar`](https://www.libarchive.org).
 
-Intended to be used with [packer](https://packer.io) and the [packer-builder-arm-image](https://github.com/solo-io/packer-builder-arm-image) plugin.
-
 ## Usage
+
+Download the image and install with the etcher GUI:
+
+```console
+$ brew cask install balenaetcher
+```
 
 The indented usage is to just consume the artifacts published on the [GitHub releases](https://github.com/bcomnes/archlinux-arm-img/releases) page, but you can also run it locally on linux.
 
@@ -39,6 +43,8 @@ Currently publishing the following installations.  Open a pull request if you wo
 Run your own builds CI for a greater level of trust in the build output.
 
 ## See also
+
+Intended to be used with [packer](https://packer.io) and the [packer-builder-arm-image](https://github.com/solo-io/packer-builder-arm-image) plugin.
 
 -  [Packer](https://www.packer.io)
 -  [archlinuxarm.org](https://archlinuxarm.org)
