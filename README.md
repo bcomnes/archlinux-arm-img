@@ -13,7 +13,7 @@ You can use this repo in a few different ways:
 
 ### Flashing the provided image
 
-1. [Download the image](https://github.com/bcomnes/archlinux-arm-img/releases/latest) and install with the [etcher GUI](https://www.balena.io/etcher/) or something similar:
+1. [Download the image](https://github.com/bcomnes/archlinux-arm-img/releases/latest) and install with the [etcher GUI](https://www.balena.io/etcher/) or [something similar](https://www.raspberrypi.org/documentation/installation/installing-images/):
 
 ```console
 # on mac
@@ -22,9 +22,13 @@ $ brew cask install balenaetcher
 
 ![etcher screenshot](./etcher.png)
 
-2. The `/` partition is very small, so you will also need to extend that to fill up your SD card.  You have to do this from an external system, you cannot resize the partition with the system running on the SD card itself. TODO: instructions/resources on how to do that.
+1. The `/` partition is very small, so you will also need to extend that to fill up your SD card.  You have to do this from an external system, you cannot resize the partition with the system running on the SD card itself.
 
-3. Continue on [step 9](https://archlinuxarm.org/platforms/armv8/broadcom/raspberry-pi-3) from the relavant intructions where you boot the SD card, log in (user:`alarm` pw:`alarm` root:`root`) and initialize pacman:
+- Arch Linux: [Parted#Resizing_partitions](https://wiki.archlinux.org/index.php/Parted#Resizing_partitions)
+- macOS: TODO
+- Windows: TODO
+
+2. Continue on [step 9](https://archlinuxarm.org/platforms/armv8/broadcom/raspberry-pi-3) from the relavant intructions where you boot the SD card, log in (user:`alarm` pw:`alarm` root:`root`) and initialize pacman:
 
 ```console
 pacman-key --init
