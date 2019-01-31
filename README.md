@@ -22,9 +22,9 @@ $ brew cask install balenaetcher
 
 ![etcher screenshot](./etcher.png)
 
-2. The parition is very small, so you will also need to extend the last partition.  You have to do this from an external system, you cannot resize the partition with the system running on the SD card itself. TODO: instructions/resources on how to do that.
+2. The `/` partition is very small, so you will also need to extend that to fill up your SD card.  You have to do this from an external system, you cannot resize the partition with the system running on the SD card itself. TODO: instructions/resources on how to do that.
 
-3. Continue on [step 9](https://archlinuxarm.org/platforms/armv8/broadcom/raspberry-pi-3) from the relavant intructions where you boot the SD card, log in (user:`alarm`,pw:`alarm`,root:`root`) and initialize pacman:
+3. Continue on [step 9](https://archlinuxarm.org/platforms/armv8/broadcom/raspberry-pi-3) from the relavant intructions where you boot the SD card, log in (user:`alarm` pw:`alarm` root:`root`) and initialize pacman:
 
 ```console
 pacman-key --init
@@ -47,7 +47,7 @@ There is also a script to install new `bsdtar`, but its just a simple `./configu
 
 If you do run your own build, set it up to run in a CI environment. See [.travis.yml](./travis.yml) for example CI usage.
 
-### Cutomize with packer (experimental)
+### Customize with packer (experimental)
 
 (Note the following method is still experimental/WIP and doesn't work yet)
 
@@ -59,7 +59,7 @@ Create customized versions of this image with [packer](https://www.packer.io) an
 - Set up ssh keys
 - etc...
 
-See [github.com/bcomnes/raspi-packer](https://github.com/bcomnes/raspi-packer) for example consumption of this image with packer. (Not functional yet)
+See [github.com/bcomnes/raspi-packer](https://github.com/bcomnes/raspi-packer) for example consumption of this image with packer. (Not functional yet, see [solo-io/packer-builder-arm-image#12](https://github.com/solo-io/packer-builder-arm-image/issues/12))
 
 ## Releases
 
