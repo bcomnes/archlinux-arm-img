@@ -40,7 +40,7 @@ Currently publishing the following installations.  Open a pull request if you wo
 - [ArchLinuxARM-rpi-2-latest.tar.gz](https://archlinuxarm.org/platforms/armv8/broadcom/raspberry-pi-3)([rpi2](https://archlinuxarm.org/platforms/armv7/broadcom/raspberry-pi-2))
 - [ArchLinuxARM-rpi-3-latest.tar.gz](https://archlinuxarm.org/platforms/armv8/broadcom/raspberry-pi-3)
 
-Run your own builds CI for a greater level of trust in the build output.
+Run your own builds in CI for a greater level of trust in the build output.
 
 ## See also
 
