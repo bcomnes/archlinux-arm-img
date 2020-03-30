@@ -20,6 +20,19 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
+
+    - name: Cache libarchive build
+      uses: actions/cache@v1
+      with:
+        path: ./libarchive-${{env.LIBARCHIVE_VERSION}}
+        key: libarchive-${{env.LIBARCHIVE_VERSION}}
+
+    - name: Cache images
+      uses: actions/cache@v1
+      with:
+        path: ./images
+        key: images-${{env.TARGET_IMG_URL}}
+
     - name: install libarchive
       run: |
         sudo ./build-bsdtar.sh $LIBARCHIVE_VERSION

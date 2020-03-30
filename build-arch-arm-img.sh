@@ -16,7 +16,7 @@ MD5_NAME=${MD5_URL##*/}
 losetup /dev/loop10 && exit 1 || true
 
 ## Check cache and maybe download
-mkdir -p IMG_DIR
+mkdir -p $IMG_DIR
 pushd $IMG_DIR
 wget -q -N "${MD5_URL}"
 if md5sum -c "${MD5_NAME}" ; then
