@@ -9,13 +9,13 @@ jobs:
 
     strategy:
       matrix:
-        url:
-        - http://os.archlinuxarm.org/os/ArchLinuxARM-rpi-3-latest.tar.gz
-        - http://os.archlinuxarm.org/os/ArchLinuxARM-rpi-2-latest.tar.gz
-        - http://os.archlinuxarm.org/os/ArchLinuxARM-rpi-4-latest.tar.gz
+        release:
+        - ArchLinuxARM-rpi-3-latest
+        - ArchLinuxARM-rpi-2-latest
+        - ArchLinuxARM-rpi-4-latest
 
     env:
-      TARGET_IMG_URL: ${{ matrix.url }}
+      TARGET_IMG: ${{ matrix.release }}
       LIBARCHIVE_VERSION: 3.4.2
 
     steps:
@@ -31,11 +31,18 @@ jobs:
       uses: actions/cache@v1
       with:
         path: ./images
-        key: images-${{env.TARGET_IMG_URL}}
+        key: images-${{env.TARGET_IMG}}
 
     - name: install libarchive
       run: |
         sudo ./build-bsdtar.sh $LIBARCHIVE_VERSION
     - name: build iso
       run: |
-        sudo ./build-arch-arm-img.sh $TARGET_IMG_URL
+        sudo ./build-arch-arm-img.sh $TARGET_IMG
+
+    - uses: actions/upload-artifact@v1
+      with:
+        path: ${{env.TARGET_IMG}}.zip
+    - uses: actions/upload-artifact@v1
+      with:
+        path: ${{env.TARGET_IMG}}.md5

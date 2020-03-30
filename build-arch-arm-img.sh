@@ -4,7 +4,7 @@ set -e
 set -x
 
 IMG_DIR="images"
-IMG_URL="$1"
+IMG_URL="http://os.archlinuxarm.org/os/${1}.tar.gz"
 IMG_NAME=${IMG_URL##*/}
 IMG_PATH=${IMG_DIR}/${IMG_NAME}
 TARGET_IMAGE=$(basename -s .tar.gz "$IMG_NAME").img
