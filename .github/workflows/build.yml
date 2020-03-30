@@ -47,7 +47,7 @@ jobs:
     - uses: ncipollo/release-action@v1
       if: steps.tag_name.outputs.tag
       with:
-        artifacts: "ArchLinuxARM-*.{zip,md5}"
+        artifacts: "ArchLinuxARM-*.zip,ArchLinuxARM-*.md5"
         token: ${{ secrets.GITHUB_TOKEN }}
         allowUpdates: true
 
