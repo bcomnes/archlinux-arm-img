@@ -40,9 +40,11 @@ jobs:
       run: |
         sudo ./build-arch-arm-img.sh $TARGET_IMG
 
-    - uses: actions/upload-artifact@v1
+    - name: Upload img
+      uses: actions/upload-artifact@v1
       with:
         path: ${{env.TARGET_IMG}}.zip
-    - uses: actions/upload-artifact@v1
+    - name: Upload md5
+      uses: actions/upload-artifact@v1
       with:
         path: ${{env.TARGET_IMG}}.md5
