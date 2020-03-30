@@ -25,10 +25,6 @@ jobs:
       uses: olegtarasov/get-tag@v2
       id: tag_name
 
-    - name: debug tag stuff
-      run: |
-        echo ${{ steps.tag_name.outputs.tag }}
-
     - name: Cache libarchive build
       uses: actions/cache@v1
       with:
