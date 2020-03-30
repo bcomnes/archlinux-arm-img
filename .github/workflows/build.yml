@@ -49,7 +49,6 @@ jobs:
         sudo ./build-arch-arm-img.sh $TARGET_IMG
 
     - name: Create Release
-      id: create_release
       if: steps.tag_name.outputs.tag
       uses: actions/create-release@v1
       env:
@@ -61,7 +60,6 @@ jobs:
         prerelease: false
 
     - name: Upload ISO
-        id: upload-release-iso
         if: steps.tag_name.outputs.tag
         uses: actions/upload-release-asset@v1
         env:
