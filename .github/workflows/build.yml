@@ -1,0 +1,28 @@
+
+name: build
+
+on: [push]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        url:
+        - http://os.archlinuxarm.org/os/ArchLinuxARM-rpi-3-latest.tar.gz
+        - http://os.archlinuxarm.org/os/ArchLinuxARM-rpi-2-latest.tar.gz
+        - http://os.archlinuxarm.org/os/ArchLinuxARM-rpi-4-latest.tar.gz
+
+    env:
+      TARGET_IMG_URL: ${{ matrix.url }}
+      LIBARCHIVE_VERSION: 3.4.2
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: install libarchive
+      run: |
+        sudo ./build-bsdtar.sh $LIBARCHIVE_VERSION
+    - name: build iso
+      run: |
+        sudo ./build-arch-arm-img.sh $TARGET_IMG_URL

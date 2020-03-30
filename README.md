@@ -69,7 +69,7 @@ See [github.com/bcomnes/raspi-packer](https://github.com/bcomnes/raspi-packer) f
 
 Currently publishing the following installations.  Open a pull request if you would like additional images added or to request a rebuild.  Images are dated when they were created.
 
-- [ArchLinuxARM-rpi-2-latest.tar.gz](https://archlinuxarm.org/platforms/armv8/broadcom/raspberry-pi-3)([rpi2](https://archlinuxarm.org/platforms/armv7/broadcom/raspberry-pi-2))
+- [ArchLinuxARM-rpi-2-latest.tar.gz](https://archlinuxarm.org/platforms/armv8/broadcom/raspberry-pi-3)(ARMv7 32Bit [rpi2](https://archlinuxarm.org/platforms/armv7/broadcom/raspberry-pi-2))
 - [ArchLinuxARM-rpi-3-latest.tar.gz](https://archlinuxarm.org/platforms/armv8/broadcom/raspberry-pi-3)
 
 Run your own builds in CI for a greater level of trust in the build output.
