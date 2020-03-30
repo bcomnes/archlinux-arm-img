@@ -4,7 +4,7 @@ name: build
 on: [push]
 
 jobs:
-  test:
+  build:
     runs-on: ubuntu-latest
 
     strategy:
@@ -20,6 +20,14 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
+
+    - name: Get tag name
+      uses: olegtarasov/get-tag@v2
+      id: tag_name
+
+    - name: debug tag stuff
+      run: |
+        echo ${{ steps.tag_name.outputs.tag }}
 
     - name: Cache libarchive build
       uses: actions/cache@v1
@@ -39,6 +47,42 @@ jobs:
     - name: build iso
       run: |
         sudo ./build-arch-arm-img.sh $TARGET_IMG
+
+    - name: Create Release
+      id: create_release
+      if: steps.tag_name.outputs.tag
+      uses: actions/create-release@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        tag_name: ${{ github.ref }}
+        release_name: Release ${{ github.ref }}
+        draft: false
+        prerelease: false
+
+    - name: Upload ISO
+        id: upload-release-asset
+        if: steps.tag_name.outputs.tag
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: ./${{env.TARGET_IMG}}.zip
+          asset_name: ${{env.TARGET_IMG}}.zip
+          asset_content_type: application/zip
+
+    - name: Upload MD5
+        id: upload-release-asset
+        if: steps.tag_name.outputs.tag
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: ./${{env.TARGET_IMG}}.zip.md5
+          asset_name: ${{env.TARGET_IMG}}.zip.md5
+          asset_content_type: text/plain
 
     - name: Upload img
       uses: actions/upload-artifact@v1
