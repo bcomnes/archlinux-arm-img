@@ -49,7 +49,6 @@ jobs:
         sudo ./build-arch-arm-img.sh $TARGET_IMG
 
     - name: Create Release
-      if: steps.tag_name.outputs.tag
       uses: actions/create-release@v1
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -60,27 +59,25 @@ jobs:
         prerelease: false
 
     - name: Upload ISO
-        if: steps.tag_name.outputs.tag
-        uses: actions/upload-release-asset@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: ./${{env.TARGET_IMG}}.zip
-          asset_name: ${{env.TARGET_IMG}}.zip
-          asset_content_type: application/zip
+      uses: actions/upload-release-asset@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        upload_url: ${{ steps.create_release.outputs.upload_url }}
+        asset_path: ./${{env.TARGET_IMG}}.zip
+        asset_name: ${{env.TARGET_IMG}}.zip
+        asset_content_type: application/zip
 
     - name: Upload MD5
-        id: upload-release-md5
-        if: steps.tag_name.outputs.tag
-        uses: actions/upload-release-asset@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: ./${{env.TARGET_IMG}}.zip.md5
-          asset_name: ${{env.TARGET_IMG}}.zip.md5
-          asset_content_type: text/plain
+      id: upload-release-md5
+      uses: actions/upload-release-asset@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        upload_url: ${{ steps.create_release.outputs.upload_url }}
+        asset_path: ./${{env.TARGET_IMG}}.zip.md5
+        asset_name: ${{env.TARGET_IMG}}.zip.md5
+        asset_content_type: text/plain
 
     - name: Upload img
       uses: actions/upload-artifact@v1
