@@ -84,12 +84,12 @@ jobs:
         asset_name: ${{env.TARGET_IMG}}.zip.md5
         asset_content_type: text/plain
 
-    - name: Upload img
+    - name: Upload img artifact
       uses: actions/upload-artifact@v1
       with:
         name: ${{env.TARGET_IMG}}.zip
         path: ${{env.TARGET_IMG}}.zip
-    - name: Upload md5
+    - name: Upload md5 artifact
       uses: actions/upload-artifact@v1
       with:
         path: ${{env.TARGET_IMG}}.zip.md5
