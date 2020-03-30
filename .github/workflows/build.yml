@@ -43,8 +43,10 @@ jobs:
     - name: Upload img
       uses: actions/upload-artifact@v1
       with:
+        name: ${{env.TARGET_IMG}}.zip
         path: ${{env.TARGET_IMG}}.zip
     - name: Upload md5
       uses: actions/upload-artifact@v1
       with:
         path: ${{env.TARGET_IMG}}.md5
+        name: ${{env.TARGET_IMG}}.md5
