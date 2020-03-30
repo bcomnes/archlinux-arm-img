@@ -48,41 +48,12 @@ jobs:
       run: |
         sudo ./build-arch-arm-img.sh $TARGET_IMG
 
-    - name: Create Release
-      id: create_release
+    - uses: ncipollo/release-action@v1
       if: steps.tag_name.outputs.tag
-      uses: actions/create-release@v1
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
-        tag_name: ${{ steps.tag_name.outputs.tag }}
-        release_name: Release ${{ steps.tag_name.outputs.tag }}
-        draft: false
-        prerelease: false
-
-    - name: Upload ISO
-      id: upload-release-isogit
-      if: steps.tag_name.outputs.tag
-      uses: actions/upload-release-asset@v1
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      with:
-        upload_url: ${{ steps.create_release.outputs.upload_url }}
-        asset_path: ./${{env.TARGET_IMG}}.zip
-        asset_name: ${{env.TARGET_IMG}}.zip
-        asset_content_type: application/zip
-
-    - name: Upload MD5
-      id: upload-release-md5
-      if: steps.tag_name.outputs.tag
-      uses: actions/upload-release-asset@v1
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      with:
-        upload_url: ${{ steps.create_release.outputs.upload_url }}
-        asset_path: ./${{env.TARGET_IMG}}.zip.md5
-        asset_name: ${{env.TARGET_IMG}}.zip.md5
-        asset_content_type: text/plain
+        artifacts: "ArchLinuxARM-*.{zip,md5}"
+        token: ${{ secrets.GITHUB_TOKEN }}
+        allowUpdates: true
 
     - name: Upload img artifact
       uses: actions/upload-artifact@v1
