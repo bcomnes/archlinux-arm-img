@@ -1,6 +1,8 @@
 # archlinux-arm-img
 [![Build Status](https://travis-ci.com/bcomnes/archlinux-arm-img.svg?branch=master)](https://travis-ci.com/bcomnes/archlinux-arm-img)
 
+**NOTE**: DEPRECIATED IN FAVOR OF https://github.com/bcomnes/raspi-packer
+
 ![logo](./alarm.png)
 
 A simple (unofficial) CI/CD bash script to build a zipped `.img` of [Arch Linux Arm](https://archlinuxarm.org) installation archives, released to [GitHub releases](https://github.com/bcomnes/archlinux-arm-img/releases).
